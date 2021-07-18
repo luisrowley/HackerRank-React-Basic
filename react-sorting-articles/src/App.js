@@ -21,12 +21,12 @@ class App extends React.Component {
   }
 
   sortDate() {
-    this.setState({flag: 'recent'});
+    this.setState({flag: 'Most Recent'});
     this.state.articles.sort((a, b) => (a.date > b.date ? -1 : b.date > a.date ? 1 : 0))
   }
 
   sortAlphabet() {
-    this.setState({flag: 'alphabetical'});
+    this.setState({flag: 'Alphabetical Order'});
     this.state.articles.sort((a, b) =>
       a.title.toLowerCase() < b.title.toLowerCase() ? -1 : b.title.toLowerCase() < a.title.toLowerCase() ? 1 : 0
     )
@@ -58,6 +58,9 @@ class App extends React.Component {
             onClick={() => this.sortAlphabet()}>
             Alphabetical Order
           </button>
+        </div>
+        <div className='layout-row align-items-center justify-content-center my-20 navigation'>
+          <h4>Sorting by {this.state.flag}</h4>
         </div>
         <Articles articles={this.state.articles}/>
       </div>
