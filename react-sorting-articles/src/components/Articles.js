@@ -1,6 +1,12 @@
 import React from 'react'
 
 class Articles extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { flag: 'votes' };
+  }
+
   render() {
     return (
       <div className='card w-50 mx-auto'>
