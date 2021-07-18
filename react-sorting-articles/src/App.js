@@ -26,9 +26,10 @@ class App extends React.Component {
   }
 
   sortAlphabet() {
-      this.state.articles.sort((a, b) =>
-        a.upvotes > b.upvotes ? -1 : b.upvotes > a.upvotes ? 1 : 0
-      )
+    this.setState({flag: 'alphabetical'});
+    this.state.articles.sort((a, b) =>
+      a.title.toLowerCase() < b.title.toLowerCase() ? -1 : b.title.toLowerCase() < a.title.toLowerCase() ? 1 : 0
+    )
   }
 
   render() {
@@ -54,7 +55,7 @@ class App extends React.Component {
           <button
             data-testid='alphabetical-link'
             className='small'
-            onClick={() => this.setState({flag: 'votes'})}>
+            onClick={() => this.sortAlphabet()}>
             Alphabetical Order
           </button>
         </div>
